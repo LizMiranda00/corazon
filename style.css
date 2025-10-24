@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  color: #fff;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+  font-size: 150%;
+  touch-action: none;
+}
+
+
+.cosmic-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, #7a0e77f3, #100033);
+  z-index: -2;
+}
+
+.message {
+  position: absolute;
+  top: 5%;
+  width: 100%;
+  color: #fffcfe;
+  text-shadow: 0 0 10px #ff99ff;
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.subtitle {
+  font-size: 1.1em;
+  opacity: 0.8;
+}
+
+canvas {
+  margin-top: 2%;
+  display: block;
+  position: fixed;         /* lo fija para que cubra toda la ventana */
+  top: 0;
+  left: 0;
+  width: 100vw;            /* ancho completo */
+  height: 100vh;           /* alto completo */
+  background: transparent; /* el punto clave: hace que se vea el fondo del body */
+  z-index: 1;
+}
+
+
+.music-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(186, 85, 211, 0.8);
+  color: white;
+  font-size: 16px;
+  font-family: 'Oswald', sans-serif;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(186, 85, 211, 0.7);
+  transition: all 0.3s ease;
+}
+.music-button:hover {
+  background-color: rgba(255, 105, 255, 1);
+  box-shadow: 0 0 20px rgba(255, 105, 255, 1);
+}
+
+
+@media (max-width: 768px) {
+  .message .title {
+    font-size: 1.5em;
+  }
+
+  .message .subtitle {
+    font-size: 0.9em;
+  }
+
+  .music-button {
+    font-size: 14px;
+    padding: 8px 15px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
