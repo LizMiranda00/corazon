@@ -13,7 +13,7 @@ window.addEventListener("click", () => {
 const messages = [
   "Eres mi universo amorcito",
   "Eres mi lugar favorito, incluso cuando el mundo se vuelve caótico",
-  "Eres la estrella más brillanteMe encantas más de lo que puedo explicar",
+  "Me encantas más de lo que puedo explicar",
   "Tu amor me enciende el alma",
   "No sé cómo lo haces, pero cada día me gustas más",
   "Contigo todo es más bonito, incluso lo simple"
