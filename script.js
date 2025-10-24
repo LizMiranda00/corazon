@@ -101,7 +101,7 @@ function createFallingText() {
   // Centro exacto (o deja tu variación ±100 px si quieres)
   const x = canvas.width / 2;
 
-  fallingTexts.push({ text, x, y: -20, alpha: 1, speed: 2.5 + Math.random() * 2.5, fontSize });
+  fallingTexts.push({ text, x, y: -20, alpha: 1, speed: 5 + Math.random() * 5, fontSize });
 }
 
 
@@ -184,7 +184,7 @@ for (let i = 0; i < fallingTexts.length; i++) {
 
 createHeart();
 createFallingText();               // aparece una de inmediato
-setInterval(createFallingText, 1000);  // intenta cada 2.2s; si hay una, se salta
+setInterval(createFallingText, 400);  // intenta cada 2.2s; si hay una, se salta
 draw();
 // Ajustar tamaño del canvas al cambiar orientación o tamaño de pantalla
 window.addEventListener('resize', () => {
