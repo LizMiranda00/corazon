@@ -51,7 +51,9 @@ for (let t = 0; t < Math.PI * 2; t += 0.01) {
 function createHeart() {
   const LAYERS = 8;     // capas de puntitos por cada punto base (súbelo a 10–12 si quieres más)
   const THICKNESS = 12; // “grosor” del anillo en píxeles (sube/baja para ajustar)
-
+  // 👇 escala automática: más pequeña en pantallas chicas
+ 
+  const scale = (window.innerWidth < 768) ? 14 : 20;
   particles.length = 0;
 
   heartPoints.forEach(p => {
@@ -63,8 +65,8 @@ function createHeart() {
       const jy = Math.sin(ang) * r;
 
       particles.push({
-        x: canvas.width / 2 + p.x * 20 + jx,
-        y: canvas.height / 2 - p.y * 20 + jy,
+        x: canvas.width / 2 + p.x * scale + jx,
+        y: canvas.height / 2 - p.y * scale + jy,
         alpha: 0.6 + Math.random() * 0.4   // para que no todos brillen igual
       });
     }
@@ -77,14 +79,23 @@ const fallingTexts = [];
 
 function createFallingText() {
   const text = messages[Math.floor(Math.random() * messages.length)];
-  const fontSize = 16 + Math.random() * 10;
-  const x = Math.random() * (canvas.width - 200);
+
+  // 👇 letras más grandes en desktop, un poco menores en móvil
+  const base = (window.innerWidth < 768) ? 22 : 28;
+  const spread = (window.innerWidth < 768) ? 10 : 15;
+  const fontSize = base + Math.random() * spread;
+
+  // 👇 deja más margen lateral en móvil para que no se corten
+  const lateralMargin = (window.innerWidth < 768) ? 40 : 200;
+  const x = Math.random() * (canvas.width - lateralMargin);
+
   fallingTexts.push({ text, x, y: -20, alpha: 1, speed: 1 + Math.random() * 1.5, fontSize });
 }
 
+
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
+
   // ✨ Dibujar chispas (sin borrar el fondo lila)
   for (let s of stars) {
     ctx.beginPath();
