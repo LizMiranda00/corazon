@@ -81,11 +81,11 @@ function createHeart() {
 
 // texto que cae como lluvia
 const fallingTexts = [];  // ⬅️ necesario
-const MAX_ACTIVE_TEXTS = 1;
+const MAX_ACTIVE_TEXTS = 3;
 let msgIndex = 0; // ⬅️ pon esto una sola vez (arriba de createFallingText)
 
 function createFallingText() {
-  if (fallingTexts.length >= MAX_ACTIVE_TEXTS) return;  // ⬅️ evita superposición
+ // if (fallingTexts.length >= MAX_ACTIVE_TEXTS) return;  // ⬅️ evita superposición
 
   // OPCIONAL: en orden (no aleatorio):
   const text = messages[msgIndex];
@@ -101,7 +101,7 @@ function createFallingText() {
   // Centro exacto (o deja tu variación ±100 px si quieres)
   const x = canvas.width / 2;
 
-  fallingTexts.push({ text, x, y: -20, alpha: 1, speed: 5 + Math.random() * 5, fontSize });
+  fallingTexts.push({ text, x, y: -40, alpha: 1, speed: 6 + Math.random() * 6, fontSize });
 }
 
 
@@ -184,7 +184,7 @@ for (let i = 0; i < fallingTexts.length; i++) {
 
 createHeart();
 createFallingText();               // aparece una de inmediato
-setInterval(createFallingText, 400);  // intenta cada 2.2s; si hay una, se salta
+setInterval(createFallingText, 2000);  // intenta cada 2.2s; si hay una, se salta
 draw();
 // Ajustar tamaño del canvas al cambiar orientación o tamaño de pantalla
 window.addEventListener('resize', () => {
